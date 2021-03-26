@@ -11,7 +11,7 @@ public interface ScheduleService {
 
     List<Schedule> findByRoom(Room room);
 
-    List<Schedule> getAllSchedule();
+    List<Schedule> findByRoom(String number);
 
-//    List<Schedule> getAllScheduleWithCustomDate();
+    List<Schedule> getAllSchedule();
 }

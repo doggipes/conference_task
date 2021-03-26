@@ -1,16 +1,16 @@
 package ru.waveaccess.conference.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 import ru.waveaccess.conference.model.enums.Role;
 import ru.waveaccess.conference.model.enums.State;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -31,5 +31,6 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinTable(name = "user_presentation", joinColumns = @JoinColumn(name = "user_id"),
                                                         inverseJoinColumns = @JoinColumn(name = "presentation_id"))
+    @JsonManagedReference
     private List<Presentation> presentations;
 }

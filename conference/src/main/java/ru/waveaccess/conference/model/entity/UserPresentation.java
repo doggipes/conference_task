@@ -1,5 +1,6 @@
 package ru.waveaccess.conference.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "user_presentation")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class UserPresentation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

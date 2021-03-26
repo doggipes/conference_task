@@ -1,5 +1,6 @@
 package ru.waveaccess.conference.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.sql.Timestamp;
 @Builder
 @Entity
 @Table(name = "verification_token")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class VerificationToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

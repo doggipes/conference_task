@@ -16,6 +16,7 @@ import ru.waveaccess.conference.service.interfaces.ScheduleService;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.time.DateTimeException;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,9 +47,11 @@ public class ScheduleController {
     }
 
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({EntityNotFoundException.class})
+    @ExceptionHandler({EntityNotFoundException.class, DateTimeException.class})
     public String handleNotFoundError(Exception e, Model model) {
         model.addAttribute("ScheduleForm", new ScheduleForm());
+        model.addAttribute("rooms", roomService.getAllRoomNames());
+        model.addAttribute("presentations", presentationService.getMapWithAllPresentations());
         model.addAttribute("error", "Error: " + e.getMessage());
         return "schedule";
     }

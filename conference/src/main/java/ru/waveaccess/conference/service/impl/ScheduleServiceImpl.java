@@ -37,15 +37,15 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
+    public List<Schedule> findByRoom(String number) {
+        return scheduleRepository.findByRoom(number);
+    }
+
+    @Override
     public List<Schedule> getAllSchedule() {
         return scheduleRepository.findAll();
     }
 
-
-//    private static Schedule convertSchedule(Schedule schedule){
-//        schedule.getStartDate()
-//        return null;
-//    }
 
     private boolean validationDates(Schedule schedule){
         if(!checkDates(schedule.getStartDate(), schedule.getEndDate()))

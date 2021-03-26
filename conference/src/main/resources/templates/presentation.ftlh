@@ -21,9 +21,11 @@
                         <input type="text" name="name" value="${presentation.getName()}"> <br>
                         <button type="submit">Edit</button>
                     </form>
+
                     <form method="post" action="/presentation/${presentation.getId()}/presenter">
                         <button type="submit">Become a presenter</button>
                     </form>
+
                     <form method="post" action="/presentation/${presentation.getId()}/delete">
                         <button type="submit">Delete</button>
                     </form> <br>

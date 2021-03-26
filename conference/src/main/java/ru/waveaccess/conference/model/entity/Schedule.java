@@ -1,17 +1,16 @@
 package ru.waveaccess.conference.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "schedule")
@@ -22,6 +21,7 @@ public class Schedule {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, name = "room_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Room room;
 
     @DateTimeFormat(pattern = "yyyy-MM-ddThh:mm")
@@ -34,5 +34,6 @@ public class Schedule {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, name = "presentation_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Presentation presentation;
 }

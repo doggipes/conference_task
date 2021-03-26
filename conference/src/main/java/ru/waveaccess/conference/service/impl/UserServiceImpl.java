@@ -12,6 +12,8 @@ import ru.waveaccess.conference.service.interfaces.TokenService;
 import ru.waveaccess.conference.service.interfaces.UserService;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Locale;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -54,6 +56,28 @@ public class UserServiceImpl implements UserService {
         tokenService.deleteToken(token);
 
         return true;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void updateName(String name, Long id) {
+        userRepository.updateUserName(name, id);
+    }
+
+    @Override
+    @Transactional
+    public void updateRole(String role, Long id) {
+        userRepository.updateUserRole(Role.valueOf(role.toUpperCase(Locale.ROOT)), id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
 
 }
