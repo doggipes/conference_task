@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet  author="sa"  id="4">
+        <insert tableName="user">
+            <column  name="name"  value="Artem"/>
+            <column  name="surname"  value="Artemov"/>
+            <column  name="email"  value="admin@admin.ru"/>
+            <column  name="password"  value="$2a$10$vuw.yY2UVPqbG6qcPG.pt.FeVEwMgFypn4c3H0aBXIvGbUSrseBja"/>
+            <column  name="role"  value="ADMIN"/>
+            <column  name="state"  value="CONFIRMED"/>
+        </insert>
+        <insert tableName="user">
+            <column  name="name"  value="Max"/>
+            <column  name="surname"  value="Maxov"/>
+            <column  name="email"  value="presenter@presenter.ru"/>
+            <column  name="password"  value="$2a$10$vuw.yY2UVPqbG6qcPG.pt.FeVEwMgFypn4c3H0aBXIvGbUSrseBja"/>
+            <column  name="role"  value="PRESENTER"/>
+            <column  name="state"  value="CONFIRMED"/>
+        </insert>
+        <insert tableName="user">
+            <column  name="name"  value="Nikita"/>
+            <column  name="surname"  value="Nikitov"/>
+            <column  name="email"  value="listener@listener.ru"/>
+            <column  name="password"  value="$2a$10$vuw.yY2UVPqbG6qcPG.pt.FeVEwMgFypn4c3H0aBXIvGbUSrseBja"/>
+            <column  name="role"  value="LISTENER"/>
+            <column  name="state"  value="CONFIRMED"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

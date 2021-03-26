@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+<!--Create table files-->
+    <include file="db/changelog/configuration/create-user-table.xml"/>
+    <include file="db/changelog/configuration/create-verification-token-table.xml"/>
+    <include file="db/changelog/configuration/create-room-table.xml"/>
+    <include file="db/changelog/configuration/create-presentation-table.xml"/>
+    <include file="db/changelog/configuration/create-schedule-table.xml"/>
+    <include file="db/changelog/configuration/create-user-presentation-table.xml"/>
+
+<!--Insert files-->
+    <include file="db/changelog/configuration/insert-room-data.xml"/>
+    <include file="db/changelog/configuration/insert-user-data.xml"/>
+</databaseChangeLog>
