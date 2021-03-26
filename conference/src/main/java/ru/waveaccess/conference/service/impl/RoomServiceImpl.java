@@ -2,6 +2,7 @@ package ru.waveaccess.conference.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.waveaccess.conference.exception.RoomEntityNotFound;
+import ru.waveaccess.conference.model.dto.RoomDto;
 import ru.waveaccess.conference.model.entity.Room;
 import ru.waveaccess.conference.repository.RoomRepository;
 import ru.waveaccess.conference.service.interfaces.RoomService;
@@ -19,13 +20,13 @@ public class RoomServiceImpl implements RoomService {
 
 
     @Override
-    public void createRoom() {
-
+    public Room createRoom(RoomDto roomDto) {
+        return roomRepository.save(Room.builder().name(roomDto.getName()).build());
     }
 
     @Override
     public Room findByNumber(String number) {
-        if(!roomRepository.findByName(number).isPresent())
+        if (!roomRepository.findByName(number).isPresent())
             throw new RoomEntityNotFound("Room doesn't exist");
 
         return roomRepository.findByName(number).get();

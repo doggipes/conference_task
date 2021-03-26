@@ -15,7 +15,7 @@ public class ConfirmController {
 
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)
     @ResponseBody
-    public String getMainWithTokenParameterController(@RequestParam String token){
+    public String getMainWithTokenParameterController(@RequestParam String token) {
         return userService.userConfirmation(token) ? "Success" : "Something going wrong";
     }
 

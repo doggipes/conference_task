@@ -25,7 +25,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         ScheduleDto scheduleDto = new ScheduleDto(scheduleForm);
         Schedule schedule = scheduleDtoMapper.from(scheduleDto);
 
-        if(!validationDates(schedule))
+        if (!validationDates(schedule))
             throw new DateTimeException("Wrong time");
 
         scheduleRepository.save(schedule);
@@ -47,8 +47,8 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
 
-    private boolean validationDates(Schedule schedule){
-        if(!checkDates(schedule.getStartDate(), schedule.getEndDate()))
+    private boolean validationDates(Schedule schedule) {
+        if (!checkDates(schedule.getStartDate(), schedule.getEndDate()))
             return false;
 
         List<Schedule> schedulesWithThisRoom = findByRoom(schedule.getRoom());
@@ -58,7 +58,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         return schedulesWithThisRoom.stream().noneMatch(s -> (s.getStartDate().before(endDate) && startDate.before(s.getEndDate())));
     }
 
-    private boolean checkDates(Timestamp startTime, Timestamp endTime){
+    private boolean checkDates(Timestamp startTime, Timestamp endTime) {
         return startTime.before(endTime);
     }
 }

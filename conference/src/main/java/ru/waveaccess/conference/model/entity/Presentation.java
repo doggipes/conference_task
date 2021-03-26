@@ -1,7 +1,5 @@
 package ru.waveaccess.conference.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,10 +17,10 @@ public class Presentation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "presentations", cascade = CascadeType.REMOVE)
-    @JsonBackReference
     private List<User> users;
-    @OneToOne(mappedBy = "presentation")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
+    @OneToOne(mappedBy = "presentation",fetch = FetchType.LAZY)
     private Schedule schedule;
 }

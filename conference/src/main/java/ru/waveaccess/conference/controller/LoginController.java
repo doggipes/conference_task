@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String getLoginController(Authentication authentication){
+    public String getLoginController(Authentication authentication) {
         return authentication == null ? "login" : "redirect:/";
     }
 }

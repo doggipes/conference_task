@@ -23,7 +23,7 @@ public class UserDetailsImpl implements UserDetails {
         return Collections.singleton(simpleGrantedAuthority);
     }
 
-    public User getUser(){
+    public User getUser() {
         return user;
     }
 

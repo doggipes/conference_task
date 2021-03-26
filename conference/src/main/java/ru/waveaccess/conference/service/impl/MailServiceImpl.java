@@ -24,7 +24,7 @@ public class MailServiceImpl implements MailService {
     @Async
     public void sendEmail(String to, String body) {
         MimeMessagePreparator preparator = mimeMessage -> {
-            String html = "Verification <a href='http://localhost:8080/confirm?token="+ body + "'>link</a>";
+            String html = "Verification <a href='http://localhost:8080/confirm?token=" + body + "'>link</a>";
 
             mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
             mimeMessage.setFrom(new InternetAddress("idzhalil@gmail.com"));
@@ -34,8 +34,7 @@ public class MailServiceImpl implements MailService {
 
         try {
             javaMailSender.send(preparator);
-        }
-        catch (MailException ex) {
+        } catch (MailException ex) {
             System.err.println(ex.getMessage());
         }
     }

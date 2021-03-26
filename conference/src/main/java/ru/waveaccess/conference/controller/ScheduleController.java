@@ -26,7 +26,7 @@ public class ScheduleController {
     private final PresentationService presentationService;
 
     @RequestMapping(value = "/schedule", method = RequestMethod.GET)
-    public String getPresentationController(Model model){
+    public String getPresentationController(Model model) {
         model.addAttribute("ScheduleForm", new ScheduleForm());
         model.addAttribute("rooms", roomService.getAllRoomNames());
         model.addAttribute("presentations", presentationService.getMapWithAllPresentations());
@@ -35,8 +35,8 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/schedule", method = RequestMethod.POST)
-    public String postPresentationController(@Valid ScheduleForm scheduleForm, BindingResult bindingResult, Model model){
-        if(!bindingResult.hasErrors())
+    public String postPresentationController(@Valid ScheduleForm scheduleForm, BindingResult bindingResult, Model model) {
+        if (!bindingResult.hasErrors())
             scheduleService.createSchedule(scheduleForm);
 
         model.addAttribute("ScheduleForm", scheduleForm);

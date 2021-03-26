@@ -2,11 +2,11 @@ package ru.waveaccess.conference.service.impl;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.waveaccess.conference.model.form.SignUpForm;
 import ru.waveaccess.conference.exception.UserAlreadyExist;
 import ru.waveaccess.conference.model.entity.User;
 import ru.waveaccess.conference.model.enums.Role;
 import ru.waveaccess.conference.model.enums.State;
+import ru.waveaccess.conference.model.form.SignUpForm;
 import ru.waveaccess.conference.repository.UserRepository;
 import ru.waveaccess.conference.service.interfaces.TokenService;
 import ru.waveaccess.conference.service.interfaces.UserService;

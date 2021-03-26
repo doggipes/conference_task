@@ -35,7 +35,7 @@ public class PresentationServiceImpl implements PresentationService {
     @Override
     public Presentation findById(Long id) {
         Optional<Presentation> presentation = presentationRepository.findById(id);
-        if(!presentation.isPresent())
+        if (!presentation.isPresent())
             throw new PresentationEntityNotFound("Presentation doesn't exist");
         return presentation.get();
     }
@@ -43,7 +43,7 @@ public class PresentationServiceImpl implements PresentationService {
     @Override
     public Presentation findByName(String name) {
         Optional<Presentation> presentation = presentationRepository.findByName(name);
-        if(!presentation.isPresent())
+        if (!presentation.isPresent())
             throw new PresentationEntityNotFound("Presentation doesn't exist");
         return presentation.get();
     }
@@ -61,7 +61,7 @@ public class PresentationServiceImpl implements PresentationService {
     @Override
     public void delete(Long id) {
         Optional<Presentation> optionalPresentation = presentationRepository.findById(id);
-        if(!optionalPresentation.isPresent())
+        if (!optionalPresentation.isPresent())
             throw new EntityNotFoundException("Presentation doesn't exist");
 
         presentationRepository.delete(optionalPresentation.get());
@@ -71,7 +71,7 @@ public class PresentationServiceImpl implements PresentationService {
     @Transactional
     public void updateName(Long id, String name) {
         Optional<Presentation> optionalPresentation = presentationRepository.findById(id);
-        if(!optionalPresentation.isPresent())
+        if (!optionalPresentation.isPresent())
             throw new EntityNotFoundException("Presentation doesn't exist");
 
         presentationRepository.updatePresentationName(name, id);

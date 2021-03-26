@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "room")
-public class Room implements Serializable {
+public class Room{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

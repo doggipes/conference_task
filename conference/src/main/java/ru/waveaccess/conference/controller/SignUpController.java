@@ -18,8 +18,8 @@ public class SignUpController {
     private final UserService userService;
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String getSignUpController(Authentication authentication, Model model){
-        if(authentication != null )
+    public String getSignUpController(Authentication authentication, Model model) {
+        if (authentication != null)
             return "redirect:/start";
         else {
             model.addAttribute("SignUpForm", new SignUpForm());
@@ -28,16 +28,14 @@ public class SignUpController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String postSignUpController(@Valid SignUpForm form, BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()) {
+    public String postSignUpController(@Valid SignUpForm form, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             model.addAttribute("SignUpForm", form);
-        }
-        else {
+        } else {
             userService.register(form);
             model.addAttribute("SignUpForm", new SignUpForm());
         }
-
         return "sign-up";
     }
 }
