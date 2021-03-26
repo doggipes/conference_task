@@ -13,3 +13,9 @@
 
 #### Не реализовано 
  - Docker
+
+#### Логины и пароли
+
+admin@admin.ru : qwe  ADMIN <br>
+presenter@presenter.ru : qwe  PRESENTER <br>
+listener@listener.ru : qwe  LISTENER
